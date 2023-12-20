@@ -12,6 +12,8 @@
 1. 作成したjsonファイルを、`static/data/ghostData`に入れます。
 2. `src/lib/data.ts`を編集し、作成したjsonファイルの名前を配列`ghostDataJsonList`に書き加えます。
 
+プログラム内部で同一データをフィルターしているので、追加するjsonファイルでのデータ被りは気にしなくても大丈夫です。
+
 ## ローカル上で実行する場合
 
 [Node.js(と付属の`npm`)](https://nodejs.org)が必要となります。
