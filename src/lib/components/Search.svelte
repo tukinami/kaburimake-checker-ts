@@ -1,10 +1,14 @@
 <script lang="ts">
 	import { binarySearch } from '$lib/util';
 
-	export let kind: string;
-	export let list: string[];
-	let value: string = '';
-	let isExist: boolean | null = null;
+	interface Props {
+		kind: string;
+		list: string[];
+	}
+
+	let { kind, list }: Props = $props();
+	let value: string = $state('');
+	let isExist: boolean | null = $state(null);
 
 	const handleOnInput = (ev: Event & { currentTarget: EventTarget & HTMLInputElement }) => {
 		const targetValue = ev.currentTarget?.value?.trim() ?? '';
@@ -25,8 +29,8 @@
 	<label class="search__label">
 		<span class="labelBody">{kind}: </span>
 		<span class="searchInputs">
-			<input name="searchBox" type="text" bind:value placeholder={kind} on:input={handleOnInput} />
-			<button on:click={handleOnClear}>消去</button>
+			<input name="searchBox" type="text" bind:value placeholder={kind} oninput={handleOnInput} />
+			<button onclick={handleOnClear}>消去</button>
 		</span>
 		{#if isExist === null}
 			<span class="searchResult">(ここに結果が出ます)</span>
