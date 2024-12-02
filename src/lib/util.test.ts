@@ -1,4 +1,4 @@
-import { vi, describe, it, expect, type SpyInstance, beforeEach, afterEach } from 'vitest';
+import { vi, describe, it, expect, beforeEach, afterEach } from 'vitest';
 import {
 	uniqueGhostDataList,
 	type GhostData,
@@ -14,20 +14,17 @@ describe('fetchGhostData', () => {
 	const caseDate = new Date().toJSON();
 
 	describe('valid Data', () => {
-		let mockedFetch: SpyInstance;
+		afterEach(() => {
+			vi.restoreAllMocks();
+		});
 
-		beforeEach(async () => {
-			mockedFetch = vi.spyOn(global, 'fetch').mockImplementation(async () => {
+		beforeEach(() => {
+			vi.stubGlobal('fetch', async () => {
 				return new Response(
-					`{"update": "${caseDate}",
-"ghostList": [{ "directory": "a", "sakuraName": "a", "keroName": "a" }]
-}`,
+					`{"update": "${caseDate}", "ghostList": [{ "directory": "a", "sakuraName": "a", "keroName": "a"  }] }`,
 					{ status: 200 }
 				);
 			});
-		});
-		afterEach(() => {
-			vi.restoreAllMocks();
 		});
 
 		it('valid data', async () => {
@@ -47,20 +44,17 @@ describe('fetchGhostData', () => {
 	});
 
 	describe('invalid Data', () => {
-		let mockedFetch: SpyInstance;
+		afterEach(() => {
+			vi.restoreAllMocks();
+		});
 
-		beforeEach(async () => {
-			mockedFetch = vi.spyOn(global, 'fetch').mockImplementation(async () => {
+		beforeEach(() => {
+			vi.stubGlobal('fetch', async () => {
 				return new Response(
-					`{"update": "${caseDate}",
-"ghostList": [{ "directory": "a", "sakuraName": "a", "keroName": "a" }]
-}`,
+					`{"update": "${caseDate}", "ghostList": [{ "directory": "a", "sakuraName": "a", "keroName": "a" }]}`,
 					{ status: 404 }
 				);
 			});
-		});
-		afterEach(() => {
-			vi.restoreAllMocks();
 		});
 
 		it('invalid data', async () => {

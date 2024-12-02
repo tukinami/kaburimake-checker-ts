@@ -3,7 +3,7 @@
 
 	export let kind: string;
 	export let list: string[];
-	let value: string;
+	let value: string = '';
 	let isExist: boolean | null = null;
 
 	const handleOnInput = (ev: Event & { currentTarget: EventTarget & HTMLInputElement }) => {
