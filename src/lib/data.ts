@@ -5,6 +5,7 @@ export const ghostDataJsonList: string[] = [
 	'GhostMasquerade3.json',
 	'GhostMasquerade4.json',
 	'GhostMasquerade5.json',
+	'GhostMasquerade6.json',
 	'gsm.json',
 	'Konuka.json',
 	'mesghost.json',
