@@ -57,7 +57,7 @@
 		{/if}
 	</main>
 	<footer>
-		<p>被り負けチェッカーTS v.0.1.1</p>
+		<p>被り負けチェッカーTS v.0.1.2</p>
 		<p><a href="https://github.com/tukinami/">作者のGitHub</a></p>
 		<small>&copy; 月波 清火 & all contributors</small>
 	</footer>
