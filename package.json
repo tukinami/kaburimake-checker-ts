@@ -16,7 +16,7 @@
 	},
 	"devDependencies": {
 		"@playwright/test": "^1.57.0",
-		"@sveltejs/adapter-auto": "4.0.0",
+		"@sveltejs/adapter-cloudflare": "^7.2.4",
 		"@sveltejs/kit": "^2.49.4",
 		"@sveltejs/vite-plugin-svelte": "^5.0.1",
 		"@typescript-eslint/eslint-plugin": "^8.52.0",
@@ -33,5 +33,8 @@
 		"vite": "^6.0.1",
 		"vitest": "^4.0.16"
 	},
+  "engines": {
+    "node": "20.9.0"
+  },
 	"type": "module"
 }
